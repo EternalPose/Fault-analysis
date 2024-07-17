@@ -1,7 +1,6 @@
-### Hi there 👋
-I'm Xiangxi Xue 薛祥曦, I am currently a graduate student majoring in electrical engineering
+# LatentSegmentedODE
 
-My current research is on the application of artificial intelligence in power system fault analysis
- 
+Code repository for "Segmenting Hybrid Trajectories using Latent ODEs": https://arxiv.org/abs/2105.03835. 
 
-
+Currently cleaning up research notebook code into script format in this repository.  
+Full release shortly.   

@@ -1,0 +1,46 @@
+nohup: ignoring input
+{'obs_dim': 1, 'rec_dim': 8, 'node_dim': 4, 'rec_gru_units': 100, 'rec_node_units': 100, 'rec_node_layers': 2, 'rec_node_act': 'Tanh', 'rec_out_units': 100, 'latent_node_units': 100, 'latent_node_layers': 2, 'latent_node_act': 'Tanh', 'dec_type': 'NN', 'dec_units': 100, 'dec_layers': 2, 'dec_act': 'ReLU'}
+{'aligned_data': True, 'lr': 0.005, 'batch_size': 512, 'l_std': 1, 'kl_burn_max': 50, 'clip_norm': 5, 'model_atol': 0.0001, 'model_rtol': 0.001, 'aug_methods': [<function aug_subsample at 0x7f54821515f0>, <function aug_crop_start at 0x7f5482151680>, <function aug_add_noise at 0x7f548215f050>], 'aug_args': {'crop_min': 20, 'sample_min': 20, 'aug_noise_var': 0.03}, 'max_epochs': 1555, 'lr_decay': 0.9968867534965075}
+/home/user/codes/POWERODE/ode/LatentSegmentedODE-main/LatentSegmentedODE-main/SineWave/Data/Train/sine_train_5000_500_0.5_0.02
+Current LR: [0.0049844337674825375]
+Epoch: 1, Train ELBO: -21953.999, Val ELBO: -125821.422, Train MSE: 0.176, Val MSE: 0.176
+Current LR: [0.004968915996484032]
+Epoch: 2, Train ELBO: -28615.673, Val ELBO: -125796.190, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.00495344653613183]
+Epoch: 3, Train ELBO: -35003.560, Val ELBO: -125783.239, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.00493802523602298]
+Epoch: 4, Train ELBO: -45546.901, Val ELBO: -125779.225, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.004922651946222774]
+Epoch: 5, Train ELBO: -52017.973, Val ELBO: -125774.906, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.004907326517263285]
+Epoch: 6, Train ELBO: -55771.331, Val ELBO: -125772.463, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.004892048800141919]
+Epoch: 7, Train ELBO: -60711.611, Val ELBO: -125771.422, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.004876818646319963]
+Epoch: 8, Train ELBO: -64439.722, Val ELBO: -125771.513, Train MSE: 0.176, Val MSE: 0.175
+Current LR: [0.00486163590772114]
+Epoch: 9, Train ELBO: -71177.848, Val ELBO: -125771.261, Train MSE: 0.176, Val MSE: 0.175
+Traceback (most recent call last):
+  File "train_model.py", line 112, in <module>
+    train_loop.train(optimizer, train_args, scheduler)
+  File "/home/user/codes/POWERODE/ode/LatentSegmentedODE-main/LatentSegmentedODE-main/SineWave/train.py", line 244, in train
+    out = self.model.forward(exp_d, tp_union, mask)
+  File "/home/user/codes/POWERODE/ode/LatentSegmentedODE-main/LatentSegmentedODE-main/SineWave/latode_model.py", line 296, in forward
+    pred_z = self.generate_latent_traj(z0, ts, rtol, atol)
+  File "/home/user/codes/POWERODE/ode/LatentSegmentedODE-main/LatentSegmentedODE-main/SineWave/latode_model.py", line 277, in generate_latent_traj
+    return self.nodef.forward(z0, ts, rtol, atol)
+  File "/home/user/codes/POWERODE/ode/LatentSegmentedODE-main/LatentSegmentedODE-main/SineWave/latode_model.py", line 208, in forward
+    adjoint_options=dict(norm="seminorm"))
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/adjoint.py", line 199, in odeint_adjoint
+    adjoint_method, adjoint_options, t.requires_grad, *adjoint_params)
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/adjoint.py", line 25, in forward
+    ans = odeint(func, y0, t, rtol=rtol, atol=atol, method=method, options=options, event_fn=event_fn)
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/odeint.py", line 77, in odeint
+    solution = solver.integrate(t)
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/solvers.py", line 30, in integrate
+    solution[i] = self._advance(t[i])
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/rk_common.py", line 194, in _advance
+    self.rk_state = self._adaptive_step(self.rk_state)
+  File "/home/user/miniconda3/envs/ode/lib/python3.7/site-packages/torchdiffeq/_impl/rk_common.py", line 228, in _adaptive_step
+    assert t0 + dt > t0, 'underflow in dt {}'.format(dt.item())
+AssertionError: underflow in dt nan
